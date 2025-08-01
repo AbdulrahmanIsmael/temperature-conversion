@@ -1,5 +1,22 @@
 #include <stdio.h>
 
+void convertToCelsius(float temperature, float convertedTemperature)
+{
+    printf("Enter temperature in Fahrenheit: ");
+    scanf("%f", &temperature);
+    convertedTemperature = (temperature - 32.0) * 5.0 / 9.0;
+    printf("Temperature in Fahrenheit: %.1f Fahrenheit\n", temperature);
+    printf("Temperature in Celsius: %.1f Celsius\n", convertedTemperature);
+}
+void convertToFahrenheit(float temperature, float convertedTemperature)
+{
+    printf("Enter temperature in Celsius: ");
+    scanf("%f", &temperature);
+    convertedTemperature = (temperature * 9.0 / 5.0) + 32.0;
+    printf("Temperature in Celsius: %.1f Celsius\n", temperature);
+    printf("Temperature in Fahrenheit: %.1f Fahrenheit\n", convertedTemperature);
+}
+
 int main()
 {
     char unit = 'C';
@@ -15,19 +32,11 @@ int main()
     {
     case 'C':
     case 'c':
-        printf("Enter temperature in Celsius: ");
-        scanf("%f", &temperature);
-        convertedTemperature = (temperature * 9.0 / 5.0) + 32.0;
-        printf("Temperature in Celsius: %.1f Celsius\n", temperature);
-        printf("Temperature in Fahrenheit: %.1f Fahrenheit\n", convertedTemperature);
+        convertToFahrenheit(temperature, convertedTemperature);
         break;
     case 'F':
     case 'f':
-        printf("Enter temperature in Fahrenheit: ");
-        scanf("%f", &temperature);
-        convertedTemperature = (temperature - 32.0) * 5.0 / 9.0;
-        printf("Temperature in Fahrenheit: %.1f Fahrenheit\n", temperature);
-        printf("Temperature in Celsius: %.1f Celsius\n", convertedTemperature);
+        convertToCelsius(temperature, convertedTemperature);
         break;
     default:
         printf("Invalid input! Please enter 'C' for Celsius or 'F for Fahrenheit!\n");
